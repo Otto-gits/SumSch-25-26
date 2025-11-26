@@ -2,7 +2,7 @@ from typing import Dict, Tuple
 import os
 
 #To injest the knapsack problem instance into a knapsack class
-class Knapscack:
+class Knapsack:
     def __init__(self, filename):
         self.capacity = 0
         self.num_items = 0
@@ -32,3 +32,17 @@ class Knapscack:
                         self.items[item_id] = (profit, weight)
 
                     break  
+                
+        
+        def random_initialization():
+            pass
+        
+        def fitness():
+            pass
+        
+        def crossover(parent2):
+            pass
+        
+        def mutate():
+            pass
+            
