@@ -1,4 +1,5 @@
 from Knapsack import Knapsack
+import copy
 
 class Population:
     def __init__ (self):
@@ -6,6 +7,7 @@ class Population:
     
     def fill_population(self, size, first_individual: Knapsack):
         for _ in range(size):
-            random_individual = first_individual.random_initialization()
+            random_individual = copy.deepcopy(first_individual)
+            random_individual.random_initialization()
             self.individuals.append(random_individual)
 
