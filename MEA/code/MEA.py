@@ -16,8 +16,8 @@ def run_MEA(instance_filename, pop_size, generations):
     for gen in range(generations):
         p1Ind = random.randint(0, pop_size - 1)
         p2Ind = random.randint(0, pop_size - 1)
-        parent1 =  population.individuals[p1Ind]
-        parent2 =  population.individuals[p2Ind]
+        parent1 = population.individuals[p1Ind]
+        parent2 = population.individuals[p2Ind]
         
         if (random.random() < 0.7):
             child1, child2 = parent1.crossover(parent2)

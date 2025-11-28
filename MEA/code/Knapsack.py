@@ -8,7 +8,7 @@ class Knapsack:
     def __init__(self, filename):
         self.capacity = 0
         self.num_items = 0
-        self.items: Dict[int, Tuple[float, float]] = {}
+        self.items: Dict[int, Tuple[float, float]] = {} # item_id: (profit, weight)
         self.bitstring: list[int] = []
         self.injest_knapsack_instance(filename)    
 
@@ -28,24 +28,40 @@ class Knapsack:
                     parts = line.split(':')
                     self.capacity = int(parts[1].strip())
                 # Extract item weights and values
-                elif line.strip() == 'ITEMS SECTION':
+                elif line.strip() == 'ITEMS SECTION	(INDEX, PROFIT, WEIGHT, ASSIGNED NODE NUMBER):':
+                    print("Injesting items...")
                     for item_line in lines[i + 1: i + 1 + self.num_items]:
                         # Parse item id, profit, and weight from the items section
                         parts = item_line.split()
+                        print(parts[0], parts[1], parts[2])
                         item_id, profit, weight = int(parts[0]) - 1, float(parts[1]), float(parts[2])  # to 0-based index
                         self.items[item_id] = (profit, weight)
-                        
+                    self.create_valid_solution()
+                    print("Initial valid solution bitstring:", self.bitstring)
+                    print("Initial valid solution fitness:", self.fitness())
                     break  
                 
         
     def random_initialization(self):
         for i in self.items.keys():
             profit, weight = self.items[i]
-            if random.random() < 0.05:
-                self.items[i] = (profit, weight - 5)
-            elif random.random() > 0.95:
-                self.items[i] = (profit, weight + 5)
+            if random.random() < 1:
+                self.items[i] = (profit, weight - 1)
+            # elif random.random() > 0.95:
+            #     self.items[i] = (profit, weight + 5)
         return self
+    
+    def create_valid_solution(self):
+        sorted_items = sorted(self.items.items(), key=lambda x: x[1][0]/x[1][1], reverse=True) # Sort by profit-to-weight ratio
+        total_weight = 0
+        for item_id, (profit, weight) in sorted_items:
+            if total_weight + weight <= self.capacity:
+                self.bitstring[item_id] = 1
+                total_weight += weight
+            else:
+                self.bitstring[item_id] = 0
+        return self
+        
     
     def fitness(self):
         sum_profit = 0
@@ -55,7 +71,8 @@ class Knapsack:
                 sum_profit += self.items[i][0]
                 sum_weight += self.items[i][1]
         if sum_weight > self.capacity:
-            return self.capacity - sum_weight
+            #Should always be a negative number so less fit than any valid solution but we are prioritizing solutions that are close to the capacity
+            return self.capacity -  sum_weight
         else:
             return sum_profit
     
@@ -77,8 +94,9 @@ class Knapsack:
         
     
     def mutate(self):
+        # print("Mutating individual...")
         for i in range(self.num_items):
-            if random.random() < 0.2:
+            if random.random() < 1/self.num_items:
                 self.bitstring[i] ^= 1
         return self
 
