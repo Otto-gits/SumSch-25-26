@@ -6,7 +6,7 @@ class Population:
         self.individuals : list[Knapsack] = []
     
     def fill_population(self, size, first_individual: Knapsack):
-        for _ in range(size):
+        for i in range(size):
             random_individual = copy.deepcopy(first_individual)
             random_individual.random_initialization()
             self.individuals.append(random_individual)

@@ -14,7 +14,7 @@ print(knap.fitness())
 # print("Best fitness in final population:", best_individual.fitness())
 
 print("Running MEA...")
-population = run_MEA('a280.txt', pop_size=3, generations=100)
+population = run_MEA('a10.txt', pop_size=3, generations=10000)
 best_individual = max(population.individuals, key=lambda ind: ind.fitness())
 print("Best fitness in final population:", best_individual.fitness())
 

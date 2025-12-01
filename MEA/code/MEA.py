@@ -18,8 +18,8 @@ def run_MEA(instance_filename, pop_size, generations):
         p2Ind = random.randint(0, pop_size - 1)
         parent1 = population.individuals[p1Ind]
         parent2 = population.individuals[p2Ind]
-        
-        if (random.random() < 0.7):
+        randInt = random.random()
+        if (randInt < 0.7):
             child1, child2 = parent1.crossover(parent2)
         else:
             # mutate copies so parents stay unchanged
@@ -29,9 +29,17 @@ def run_MEA(instance_filename, pop_size, generations):
         
         
         if child1.fitness() > parent1.fitness():
+            if (randInt < 0.7):
+                print(f"Generation {gen}: Crossover {p1Ind, p2Ind} improved {p1Ind} fitness from {parent1.fitness()} to {child1.fitness()}")
+            elif (randInt >= 0.7):
+                print(f"Generation {gen}: Mutation improved {p1Ind} fitness from {parent1.fitness()} to {child1.fitness()}")
             population.individuals[p1Ind] = child1
             
         if child2.fitness() > parent2.fitness():
+            if (randInt < 0.7):
+                print(f"Generation {gen}: Crossover {p2Ind, p1Ind} improved {p2Ind} fitness from {parent2.fitness()} to {child2.fitness()}")
+            elif (randInt >= 0.7):
+                print(f"Generation {gen}: Mutation improved {p2Ind} fitness from {parent2.fitness()} to {child2.fitness()}") 
             population.individuals[p2Ind] = child2
     
     return population
