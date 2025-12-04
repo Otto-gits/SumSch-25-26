@@ -36,7 +36,7 @@ class Knapsack:
                         print(parts[0], parts[1], parts[2])
                         item_id, profit, weight = int(parts[0]) - 1, float(parts[1]), float(parts[2])  # to 0-based index
                         self.items[item_id] = (profit, weight)
-                    self.create_valid_solution()
+                    self.create_initial_solution()
                     print("Initial valid solution bitstring:", self.bitstring)
                     print("Initial valid solution fitness:", self.fitness())
                     break  
@@ -45,13 +45,22 @@ class Knapsack:
     def random_initialization(self):
         for i in self.items.keys():
             profit, weight = self.items[i]
-            if random.random() < 1:
-                self.items[i] = (profit, weight - 1)
-            # elif random.random() > 0.95:
-            #     self.items[i] = (profit, weight + 5)
+            if (random.random() < 0.05 ) & (weight > 5):
+                self.items[i] = (profit, weight - 5)
+            elif random.random() > 0.95:
+                self.items[i] = (profit, weight + 5)
+        self.create_valid_p2w_solution()
         return self
     
-    def create_valid_solution(self):
+    def create_initial_solution(self):
+        for i in self.items.keys():
+            if random.random() < 0.5:
+                self.bitstring[i] = 1
+            else:
+                self.bitstring[i] = 0
+        return self
+    
+    def create_valid_p2w_solution(self):
         sorted_items = sorted(self.items.items(), key=lambda x: x[1][0]/x[1][1], reverse=True) # Sort by profit-to-weight ratio
         total_weight = 0
         for item_id, (profit, weight) in sorted_items:
