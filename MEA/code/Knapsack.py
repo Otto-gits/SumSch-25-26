@@ -15,7 +15,7 @@ class Knapsack:
     def injest_knapsack_instance(self, filename):
         here = os.path.dirname(__file__)
         data_path = os.path.join(here, '../instances', filename)
-
+        print(f"Injesting knapsack instance from {data_path}")
         with open(data_path, 'r') as file:
             lines = file.readlines()
             for i, line in enumerate(lines):
@@ -33,12 +33,12 @@ class Knapsack:
                     for item_line in lines[i + 1: i + 1 + self.num_items]:
                         # Parse item id, profit, and weight from the items section
                         parts = item_line.split()
-                        print(parts[0], parts[1], parts[2])
+                        # print(parts[0], parts[1], parts[2])
                         item_id, profit, weight = int(parts[0]) - 1, float(parts[1]), float(parts[2])  # to 0-based index
                         self.items[item_id] = (profit, weight)
                     self.create_initial_solution()
-                    print("Initial valid solution bitstring:", self.bitstring)
-                    print("Initial valid solution fitness:", self.fitness())
+                    # print("Initial valid solution bitstring:", self.bitstring)
+                    # print("Initial valid solution fitness:", self.fitness())
                     break  
                 
         
@@ -49,7 +49,7 @@ class Knapsack:
                 self.items[i] = (profit, weight - 5)
             elif random.random() > 0.95:
                 self.items[i] = (profit, weight + 5)
-        self.create_valid_p2w_solution()
+        # self.create_valid_p2w_solution()
         return self
     
     def create_initial_solution(self):

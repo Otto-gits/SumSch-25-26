@@ -48,3 +48,36 @@ def run_MEA(instance_filename, pop_size, generations):
             population.individuals[p2Ind] = child2
     
     return population
+
+    
+def run_MEA2(folder_path, generations):
+    # Initialize population
+    population = Population()
+    population.injest_folder(folder_path)
+    pop_size = len(population.individuals)
+
+    # Main MEA loop
+    for gen in range(generations):
+        p1Ind = random.randint(0, pop_size - 1)
+        p2Ind = random.randint(1, pop_size - 1)
+        parent1 = population.individuals[p1Ind]
+        parent2 = population.individuals[p2Ind]
+        randInt = random.random()
+        if (randInt < 0.7):
+            child1, child2 = parent1.crossover(parent2)
+        else:
+            # mutate copies so parents stay unchanged
+            child1 = copy.deepcopy(parent1).mutate()
+            child2 = copy.deepcopy(parent2).mutate()
+        
+        if(gen % 1000 == 0):
+            for i, individual in enumerate(population.individuals):
+                print(f"Generation {gen}, Individual {i} fitness: {individual.fitness()}")
+        
+        if child1.fitness() > parent1.fitness():
+            population.individuals[p1Ind] = child1
+        
+        if child2.fitness() > parent2.fitness():
+            population.individuals[p2Ind] = child2
+    
+    return population

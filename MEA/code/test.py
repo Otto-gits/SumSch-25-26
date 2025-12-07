@@ -1,16 +1,17 @@
 from Knapsack import Knapsack
-from MEA import run_MEA
-
-knap = Knapsack("a280.txt")
-print(knap.capacity, knap.num_items)
-print(knap.fitness())
-knap.bitstring = [1]*knap.num_items
-print(knap.fitness())
-knap.mutate()
-print(knap.fitness())
-population = run_MEA('a10.txt', pop_size=25, generations=100000)
-best_individual = population.individuals[0]
-print("Best fitness in final population:", best_individual.fitness())
+from MEA import run_MEA, run_MEA2
+from Population import Population
+import os
+# knap = Knapsack("n20-1.txt")
+# print(knap.capacity, knap.num_items)
+# print(knap.fitness())
+# # knap.bitstring = [1]*knap.num_items
+# # print(knap.fitness())
+# knap.mutate()
+# print(knap.fitness())
+# population = run_MEA('a10.txt', pop_size=25, generations=100000)
+# best_individual = population.individuals[0]
+# print("Best fitness in final population:", best_individual.fitness())
 
 
 # population = run_MEA('a10.txt', pop_size=5, generations=100)
@@ -28,3 +29,14 @@ print("Best fitness in final population:", best_individual.fitness())
 # knap.bitstring = [0, 0, 1] 
 
 # print("Test Instance Fitness:", knap.fitness()) 
+
+
+population = Population()
+print("cwd:", os.getcwd())
+population.injest_folder('../instances/weightsare1')
+
+population_best = run_MEA2('../instances/weightsare1', generations=10000)
+for i, individual in enumerate(population_best.individuals):
+    print(f"Individual {i} fitness: {individual.fitness()}")
+    print(f"Individual {i} bitstring: {individual.bitstring}")
+
