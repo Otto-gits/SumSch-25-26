@@ -63,21 +63,21 @@ def run_MEA2(folder_path, generations):
         parent1 = population.individuals[p1Ind]
         parent2 = population.individuals[p2Ind]
         randInt = random.random()
-        if (randInt < 0.7):
-            child1, child2 = parent1.crossover(parent2)
+        if (randInt < 0.7 and p1Ind != p2Ind):
+            child1 = copy.deepcopy(parent1).crossover(parent2)
+            child2 = copy.deepcopy(parent2).crossover(parent1)
         else:
             # mutate copies so parents stay unchanged
             child1 = copy.deepcopy(parent1).mutate()
             child2 = copy.deepcopy(parent2).mutate()
         
-        if(gen % 1000 == 0):
+        if(gen % 10000 == 0):
             for i, individual in enumerate(population.individuals):
-                print(f"Generation {gen}, Individual {i} fitness: {individual.fitness()}")
+                print(f"Generation {gen}, Individual {i} fitness: {individual.fitness()}")  
         
         if child1.fitness() > parent1.fitness():
             population.individuals[p1Ind] = child1
         
         if child2.fitness() > parent2.fitness():
             population.individuals[p2Ind] = child2
-    
     return population

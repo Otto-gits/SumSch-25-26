@@ -14,8 +14,8 @@ class Knapsack:
 
     def injest_knapsack_instance(self, filename):
         here = os.path.dirname(__file__)
-        data_path = os.path.join(here, '../instances', filename)
-        print(f"Injesting knapsack instance from {data_path}")
+        data_path = os.path.join(here, filename)
+        # print(f"Injesting knapsack instance from {data_path}")
         with open(data_path, 'r') as file:
             lines = file.readlines()
             for i, line in enumerate(lines):
@@ -29,7 +29,7 @@ class Knapsack:
                     self.capacity = int(parts[1].strip())
                 # Extract item weights and values
                 elif line.strip() == 'ITEMS SECTION	(INDEX, PROFIT, WEIGHT, ASSIGNED NODE NUMBER):':
-                    print("Injesting items...")
+                    # print("Injesting items...")
                     for item_line in lines[i + 1: i + 1 + self.num_items]:
                         # Parse item id, profit, and weight from the items section
                         parts = item_line.split()
@@ -49,7 +49,6 @@ class Knapsack:
                 self.items[i] = (profit, weight - 5)
             elif random.random() > 0.95:
                 self.items[i] = (profit, weight + 5)
-        # self.create_valid_p2w_solution()
         return self
     
     def create_initial_solution(self):
@@ -88,18 +87,8 @@ class Knapsack:
     def crossover(self, p2):
         n = len(self.bitstring)
         point = random.randint(1, n - 1)
-
-        c1_bitstring = self.bitstring[:point] + p2.bitstring[point:]
-        c2_bitstring = p2.bitstring[:point] + self.bitstring[point:]
-        
-        # Create new Knapsack objects with child bitstrings
-        child1 = copy.deepcopy(self)
-        child1.bitstring = c1_bitstring
-        
-        child2 = copy.deepcopy(self)
-        child2.bitstring = c2_bitstring
-        
-        return child1, child2
+        self.bitstring = self.bitstring[:point] + p2.bitstring[point:]
+        return self
         
     
     def mutate(self):

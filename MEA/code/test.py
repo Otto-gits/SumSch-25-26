@@ -31,12 +31,15 @@ import os
 # print("Test Instance Fitness:", knap.fitness()) 
 
 
-population = Population()
-print("cwd:", os.getcwd())
-population.injest_folder('../instances/weightsare1')
+# population = Population()
+# print("cwd:", os.getcwd())
+# population.injest_folder('../instances/weightsare1')
 
-population_best = run_MEA2('../instances/weightsare1', generations=10000)
+population_best = run_MEA2('../instances/weightsare1', generations=50000)
+
+# diagnostic: show source_file and id(items) for each individual
 for i, individual in enumerate(population_best.individuals):
+    print(i, individual.source_file, id(individual.items))
     print(f"Individual {i} fitness: {individual.fitness()}")
-    print(f"Individual {i} bitstring: {individual.bitstring}")
+    print(" Bitstring:", individual.bitstring)
 
