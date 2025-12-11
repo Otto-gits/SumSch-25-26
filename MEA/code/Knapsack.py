@@ -10,6 +10,7 @@ class Knapsack:
         self.num_items = 0
         self.items: Dict[int, Tuple[float, float]] = {} # item_id: (profit, weight)
         self.bitstring: list[int] = []
+        self.fitness = 0
         self.injest_knapsack_instance(filename)    
 
     def injest_knapsack_instance(self, filename):
@@ -28,7 +29,7 @@ class Knapsack:
                     parts = line.split(':')
                     self.capacity = int(parts[1].strip())
                 # Extract item weights and values
-                elif line.strip() == 'ITEMS SECTION	(INDEX, PROFIT, WEIGHT, ASSIGNED NODE NUMBER):':
+                elif line.strip() == 'ITEMS SECTION (INDEX, PROFIT, WEIGHT, ASSIGNED NODE NUMBER):':
                     # print("Injesting items...")
                     for item_line in lines[i + 1: i + 1 + self.num_items]:
                         # Parse item id, profit, and weight from the items section
@@ -37,6 +38,7 @@ class Knapsack:
                         item_id, profit, weight = int(parts[0]) - 1, float(parts[1]), float(parts[2])  # to 0-based index
                         self.items[item_id] = (profit, weight)
                     self.create_initial_solution()
+                    self.calc_fitness()
                     # print("Initial valid solution bitstring:", self.bitstring)
                     # print("Initial valid solution fitness:", self.fitness())
                     break  
@@ -71,7 +73,7 @@ class Knapsack:
         return self
         
     
-    def fitness(self):
+    def calc_fitness(self):
         sum_profit = 0
         sum_weight = 0
         for i in self.items.keys():
@@ -80,15 +82,19 @@ class Knapsack:
                 sum_weight += self.items[i][1]
         if sum_weight > self.capacity:
             #Should always be a negative number so less fit than any valid solution but we are prioritizing solutions that are close to the capacity
-            return self.capacity -  sum_weight
+            self.fitness = self.capacity - sum_weight
         else:
-            return sum_profit
+            self.fitness = sum_profit
     
     def crossover(self, p2):
-        n = len(self.bitstring)
-        point = random.randint(1, n - 1)
-        self.bitstring = self.bitstring[:point] + p2.bitstring[point:]
-        return self
+        for i in self.bitstring:
+            if random.random() < 0.5:
+                self.bitstring[i] = self.bitstring[i]
+                p2.bitstring[i] = p2.bitstring[i]
+            else:
+                self.bitstring[i] = p2.bitstring[i]
+                p2.bitstring[i] = self.bitstring[i]
+        return self, p2
         
     
     def mutate(self):

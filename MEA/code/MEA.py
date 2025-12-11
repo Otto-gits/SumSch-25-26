@@ -50,34 +50,40 @@ def run_MEA(instance_filename, pop_size, generations):
     return population
 
     
-def run_MEA2(folder_path, generations):
+def run_MEA2(folder_path, budget, k):
     # Initialize population
     population = Population()
-    population.injest_folder(folder_path)
+    population.injest_folder(folder_path, k)
     pop_size = len(population.individuals)
+    done = [0]*pop_size
 
     # Main MEA loop
-    for gen in range(generations):
+    evals = 0
+    while evals < budget:
         p1Ind = random.randint(0, pop_size - 1)
         p2Ind = random.randint(1, pop_size - 1)
         parent1 = population.individuals[p1Ind]
         parent2 = population.individuals[p2Ind]
+        if parent1.fitness() == 950 and done[p1Ind] == 0:
+            done[p1Ind] = 1
+            if sum(done) == pop_size:
+                break
+        if parent2.fitness() == 950 and done[p2Ind] == 0:
+            done[p2Ind] = 1
+            if sum(done) == pop_size:
+                break
+        
         randInt = random.random()
-        if (randInt < 0.7 and p1Ind != p2Ind):
-            child1 = copy.deepcopy(parent1).crossover(parent2)
-            child2 = copy.deepcopy(parent2).crossover(parent1)
+        if (randInt < 0.5):
+            child1, child2 = copy.deepcopy(parent1).crossover(copy.deepcopy(parent2))
         else:
             # mutate copies so parents stay unchanged
             child1 = copy.deepcopy(parent1).mutate()
             child2 = copy.deepcopy(parent2).mutate()
-        
-        if(gen % 10000 == 0):
-            for i, individual in enumerate(population.individuals):
-                print(f"Generation {gen}, Individual {i} fitness: {individual.fitness()}")  
-        
+        evals += 2
         if child1.fitness() > parent1.fitness():
             population.individuals[p1Ind] = child1
         
         if child2.fitness() > parent2.fitness():
             population.individuals[p2Ind] = child2
-    return population
+    return population, evals

@@ -2,6 +2,8 @@ from Knapsack import Knapsack
 from MEA import run_MEA, run_MEA2
 from Population import Population
 import os
+from PEA import run_PEA
+
 # knap = Knapsack("n20-1.txt")
 # print(knap.capacity, knap.num_items)
 # print(knap.fitness())
@@ -35,11 +37,17 @@ import os
 # print("cwd:", os.getcwd())
 # population.injest_folder('../instances/weightsare1')
 
-population_best = run_MEA2('../instances/weightsare1', generations=50000)
+# population_best = run_MEA2('../instances/n40w1k5', generations=50000)
 
-# diagnostic: show source_file and id(items) for each individual
-for i, individual in enumerate(population_best.individuals):
-    print(i, individual.source_file, id(individual.items))
+# # diagnostic: show source_file and id(items) for each individual
+# for i, individual in enumerate(population_best.individuals):
+#     print(i, individual.source_file, id(individual.items))
+#     print(f"Individual {i} fitness: {individual.fitness()}")
+#     print(" Bitstring:", individual.bitstring)
+
+PopulationPEA, evals = run_PEA('../instances/n50w1k10', budget=100000, k=2)
+print(PopulationPEA.individuals[0].items)
+print("PEA completed with evaluations:", evals)
+for i, individual in enumerate(PopulationPEA.individuals):
     print(f"Individual {i} fitness: {individual.fitness()}")
     print(" Bitstring:", individual.bitstring)
-

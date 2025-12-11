@@ -1,10 +1,8 @@
-from Knapsack import Knapsack
 from MEA import run_MEA2
-from Population import Population
 import math
 results = []
-for _ in range(30):
-    run = run_MEA2('../instances/weightsare1', generations=50000)
+for _ in range(5):
+    run = run_MEA2('../instances/n40w1k5', generations=10000)
     results.append([ind.fitness() for ind in run.individuals])
     
 print("Results over 30 runs:")
