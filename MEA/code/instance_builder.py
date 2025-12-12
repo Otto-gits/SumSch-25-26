@@ -1,7 +1,7 @@
 import os
 import random
 
-N = 50
+N = 200
 capacity = N // 2  # 25
 
 # base profits p_i = i (index 0 unused)
@@ -10,8 +10,8 @@ base_profits = list(range(0, N + 1))
 # reproducible randomness (change seed if you want different pairs)
 random.seed(42)
 
-first_half = list(range(1, 26))   # 1..25
-second_half = list(range(26, N + 1))  # 26..50
+first_half = list(range(1, 101))   # 1..25
+second_half = list(range(101, N + 1))  # 26..50
 
 random.shuffle(first_half)
 random.shuffle(second_half)
@@ -21,7 +21,7 @@ swap_pairs = list(zip(first_half[:9], second_half[:9]))
 
 def build_instance_text(k, profits):
     """Return knapsack instance k as a single string."""
-    name = f"simple50-TTP-mut{k}"
+    name = f"simple200-TTP-mut{k}"
     lines = []
     lines.append(f"PROBLEM NAME:  {name}")
     lines.append("KNAPSACK DATA TYPE: bounded strongly corr")
@@ -50,7 +50,7 @@ def build_instance_text(k, profits):
     lines.append("")  # blank line at end
     return "\n".join(lines)
 
-def write_instances_to_folder(folder_name="n50w1k10"):
+def write_instances_to_folder(folder_name="n200w1k10"):
     """Create output folder under ../instances and write each instance file there."""
     here = os.path.dirname(__file__)
     instances_root = os.path.abspath(os.path.join(here, "..", "instances"))

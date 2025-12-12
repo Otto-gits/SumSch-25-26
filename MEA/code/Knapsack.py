@@ -70,6 +70,7 @@ class Knapsack:
                 total_weight += weight
             else:
                 self.bitstring[item_id] = 0
+        self.calc_fitness()
         return self
         
     

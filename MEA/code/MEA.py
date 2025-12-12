@@ -59,16 +59,21 @@ def run_MEA2(folder_path, budget, k):
 
     # Main MEA loop
     evals = 0
+    
+    #EASY CALC OF OPTI SOL
+    best_opt = copy.deepcopy(population.individuals[0])
+    best_opt.create_valid_p2w_solution()
+    
     while evals < budget:
         p1Ind = random.randint(0, pop_size - 1)
         p2Ind = random.randint(1, pop_size - 1)
         parent1 = population.individuals[p1Ind]
         parent2 = population.individuals[p2Ind]
-        if parent1.fitness() == 950 and done[p1Ind] == 0:
+        if parent1.fitness == best_opt.fitness and done[p1Ind] == 0:
             done[p1Ind] = 1
             if sum(done) == pop_size:
                 break
-        if parent2.fitness() == 950 and done[p2Ind] == 0:
+        if parent2.fitness == best_opt.fitness and done[p2Ind] == 0:
             done[p2Ind] = 1
             if sum(done) == pop_size:
                 break
@@ -81,9 +86,12 @@ def run_MEA2(folder_path, budget, k):
             child1 = copy.deepcopy(parent1).mutate()
             child2 = copy.deepcopy(parent2).mutate()
         evals += 2
-        if child1.fitness() > parent1.fitness():
+        child1.calc_fitness()
+        child2.calc_fitness()
+        
+        if child1.fitness > parent1.fitness:
             population.individuals[p1Ind] = child1
         
-        if child2.fitness() > parent2.fitness():
+        if child2.fitness > parent2.fitness:
             population.individuals[p2Ind] = child2
     return population, evals

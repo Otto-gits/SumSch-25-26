@@ -3,6 +3,7 @@ from MEA import run_MEA, run_MEA2
 from Population import Population
 import os
 from PEA import run_PEA
+import copy
 
 # knap = Knapsack("n20-1.txt")
 # print(knap.capacity, knap.num_items)
@@ -45,9 +46,12 @@ from PEA import run_PEA
 #     print(f"Individual {i} fitness: {individual.fitness()}")
 #     print(" Bitstring:", individual.bitstring)
 
-PopulationPEA, evals = run_PEA('../instances/n50w1k10', budget=100000, k=2)
+PopulationPEA, evals = run_PEA('../instances/n100w1k10', budget=1000000, k=5)
 print(PopulationPEA.individuals[0].items)
+best_opt = copy.deepcopy(PopulationPEA.individuals[0])
+best_opt.create_valid_p2w_solution()
+print("Best optimal fitness should be:", best_opt.fitness)
 print("PEA completed with evaluations:", evals)
 for i, individual in enumerate(PopulationPEA.individuals):
-    print(f"Individual {i} fitness: {individual.fitness()}")
+    print(f"Individual {i} fitness: {individual.fitness}")
     print(" Bitstring:", individual.bitstring)
