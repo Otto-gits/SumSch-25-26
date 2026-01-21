@@ -64,34 +64,59 @@ def run_MEA2(folder_path, budget, k):
     best_opt = copy.deepcopy(population.individuals[0])
     best_opt.create_valid_p2w_solution()
     
-    while evals < budget:
+    while evals < budget and sum(done) < pop_size:
         p1Ind = random.randint(0, pop_size - 1)
-        p2Ind = random.randint(1, pop_size - 1)
+        p2Ind = random.randint(0, pop_size - 1)
         parent1 = population.individuals[p1Ind]
         parent2 = population.individuals[p2Ind]
         if parent1.fitness == best_opt.fitness and done[p1Ind] == 0:
             done[p1Ind] = 1
-            if sum(done) == pop_size:
-                break
         if parent2.fitness == best_opt.fitness and done[p2Ind] == 0:
             done[p2Ind] = 1
-            if sum(done) == pop_size:
-                break
         
         randInt = random.random()
         if (randInt < 0.5):
-            child1, child2 = copy.deepcopy(parent1).crossover(copy.deepcopy(parent2))
+            child1 = copy.deepcopy(parent1).crossover(parent2)
         else:
-            # mutate copies so parents stay unchanged
             child1 = copy.deepcopy(parent1).mutate()
-            child2 = copy.deepcopy(parent2).mutate()
-        evals += 2
+        
+        evals += 1
         child1.calc_fitness()
-        child2.calc_fitness()
         
         if child1.fitness > parent1.fitness:
             population.individuals[p1Ind] = child1
         
-        if child2.fitness > parent2.fitness:
-            population.individuals[p2Ind] = child2
+    return population, evals
+
+def MEA_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    evals = 0
+    for i in range(k - 1):
+        population.individuals[i].create_valid_p2w_solution()
+        evals += 1
+    
+    best_opt = copy.deepcopy(population.individuals[0])
+    best_opt.create_valid_p2w_solution()
+    # print("best optimal fitness should be:", best_opt.fitness)
+    while population.individuals[-1].fitness < best_opt.fitness and evals < budget:
+        parent1 = population.individuals[-1]
+        p2Ind = random.randint(0, k - 2)
+        parent2 = population.individuals[p2Ind]
+        randInt = random.random()
+        if (randInt > mutation_rate):
+            child1 = copy.deepcopy(parent1).crossover(parent2)
+        else:
+            child1 = copy.deepcopy(parent1).mutate()
+            
+        evals += 1
+        child1.calc_fitness()
+        
+        if child1.fitness > parent1.fitness:
+            population.individuals[-1] = child1
+            
+        if population.individuals[-1].fitness == best_opt.fitness:
+            break
+            # print(f"Individual {k-1} reached  fitness {population.individuals[-1].fitness}. At {evals} evaluations.")
+
     return population, evals

@@ -87,15 +87,13 @@ class Knapsack:
         else:
             self.fitness = sum_profit
     
-    def crossover(self, p2):
+    def crossover(self, p2):    
         for i in self.bitstring:
             if random.random() < 0.5:
                 self.bitstring[i] = self.bitstring[i]
-                p2.bitstring[i] = p2.bitstring[i]
             else:
                 self.bitstring[i] = p2.bitstring[i]
-                p2.bitstring[i] = self.bitstring[i]
-        return self, p2
+        return self
         
     
     def mutate(self):
