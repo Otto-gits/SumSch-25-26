@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 161 ON localhost CANCELLED AT 2026-01-27T13:26:34 ***
