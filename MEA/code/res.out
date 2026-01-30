@@ -25,3 +25,39 @@ k=6 | Run 9: MEA evaluations = 1159879
 k=6 | Run 10: MEA evaluations = 2540268
 k=6 | MEA mutation=0.5 avg evals over 10: 2407078.1, in ../instances/n500w1k10
 k=6 | MEA mutation=0.5 stddev evals over 10: 1035810.5600307857, in ../instances/n500w1k10
+k=10 | Run 1: MEA evaluations = 1424725
+k=10 | Run 2: MEA evaluations = 3215716
+k=10 | Run 3: MEA evaluations = 1068846
+k=10 | Run 4: MEA evaluations = 2822890
+k=10 | Run 5: MEA evaluations = 1202775
+k=10 | Run 6: MEA evaluations = 836513
+k=10 | Run 7: MEA evaluations = 686697
+k=10 | Run 8: MEA evaluations = 1306150
+k=10 | Run 9: MEA evaluations = 1287827
+k=10 | Run 10: MEA evaluations = 2546419
+k=10 | MEA mutation=0.5 avg evals over 10: 1639855.8, in ../instances/n500w1k10
+k=10 | MEA mutation=0.5 stddev evals over 10: 840076.8055215904, in ../instances/n500w1k10
+
+=== Mutation rate: 0.9 ===
+k=3 | Run 1: MEA evaluations = 1046045
+k=3 | Run 2: MEA evaluations = 870850
+k=3 | Run 3: MEA evaluations = 797219
+k=3 | Run 4: MEA evaluations = 1181088
+k=3 | Run 5: MEA evaluations = 892191
+k=3 | Run 6: MEA evaluations = 830521
+k=3 | Run 7: MEA evaluations = 1079220
+k=3 | Run 8: MEA evaluations = 850034
+k=3 | Run 9: MEA evaluations = 892448
+k=3 | Run 10: MEA evaluations = 1150256
+k=3 | MEA mutation=0.9 avg evals over 10: 958987.2, in ../instances/n500w1k10
+k=3 | MEA mutation=0.9 stddev evals over 10: 133846.24922260616, in ../instances/n500w1k10
+k=6 | Run 1: MEA evaluations = 2172177
+k=6 | Run 2: MEA evaluations = 605228
+k=6 | Run 3: MEA evaluations = 1732345
+k=6 | Run 4: MEA evaluations = 583856
+k=6 | Run 5: MEA evaluations = 1164103
+k=6 | Run 6: MEA evaluations = 1142109
+k=6 | Run 7: MEA evaluations = 3671804
+k=6 | Run 8: MEA evaluations = 1432403
+k=6 | Run 9: MEA evaluations = 2073378
+slurmstepd: error: *** JOB 162 ON localhost CANCELLED AT 2026-01-29T13:28:18 DUE TO TIME LIMIT ***

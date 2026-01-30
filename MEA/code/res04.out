@@ -1,0 +1,13 @@
+../instances/n500w1k10 MEA Results:
+
+=== Mutation rate: 0.5 ===
+k=10 | Run 1: MEA evaluations = 1559778
+k=10 | Run 2: MEA evaluations = 1383464
+k=10 | Run 3: MEA evaluations = 2547139
+k=10 | Run 4: MEA evaluations = 1105326
+k=10 | Run 5: MEA evaluations = 1240467
+k=10 | Run 6: MEA evaluations = 4895758
+k=10 | Run 7: MEA evaluations = 1001343
+k=10 | Run 8: MEA evaluations = 1102469
+k=10 | Run 9: MEA evaluations = 829781
+k=10 | Run 10: MEA evaluations = 3595090
