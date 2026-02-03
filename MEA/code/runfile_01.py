@@ -11,7 +11,7 @@ for mut in mutation_rates:
     for j in k_values:
         MEA_evals_per_run = []
 
-        for i in range(10):
+        for i in range(5):
             budget = 10**15
             population_pea, numEvals = MEA_K_plus_1(folder, j, budget, mut)
             MEA_evals_per_run.append(numEvals)

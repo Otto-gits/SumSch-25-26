@@ -1,7 +1,7 @@
 from MEA import MEA_K_plus_1
 
 folder = '../instances/n500w1k10'
-mutation_rates = [0.5, 0.9]
+mutation_rates = [0.1]
 k_values = [10]
 
 print(f"{folder} MEA Results:")
