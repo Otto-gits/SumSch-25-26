@@ -3,3 +3,11 @@
 === Mutation rate: 0.5 ===
 k=3 | Run 1: MEA evaluations = 1705428
 k=3 | Run 2: MEA evaluations = 1079649
+k=3 | Run 3: MEA evaluations = 959835
+k=3 | Run 4: MEA evaluations = 1096500
+k=3 | Run 5: MEA evaluations = 2546690
+k=6 | Run 1: MEA evaluations = 5022928
+k=6 | Run 2: MEA evaluations = 864280
+k=6 | Run 3: MEA evaluations = 1732675
+k=6 | Run 4: MEA evaluations = 1837850
+k=6 | Run 5: MEA evaluations = 2926563

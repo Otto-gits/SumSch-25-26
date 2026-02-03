@@ -2,3 +2,24 @@
 
 === Mutation rate: 0.5 ===
 k=10 | Run 1: MEA evaluations = 2835664
+k=10 | Run 2: MEA evaluations = 1484031
+k=10 | Run 3: MEA evaluations = 1473227
+k=10 | Run 4: MEA evaluations = 1137624
+k=10 | Run 5: MEA evaluations = 2770153
+k=10 | Run 6: MEA evaluations = 1138439
+k=10 | Run 7: MEA evaluations = 914163
+k=10 | Run 8: MEA evaluations = 2180461
+k=10 | Run 9: MEA evaluations = 1850674
+k=10 | Run 10: MEA evaluations = 729839
+
+=== Mutation rate: 0.9 ===
+k=10 | Run 1: MEA evaluations = 529384
+k=10 | Run 2: MEA evaluations = 673108
+k=10 | Run 3: MEA evaluations = 828180
+k=10 | Run 4: MEA evaluations = 3089459
+k=10 | Run 5: MEA evaluations = 1647982
+k=10 | Run 6: MEA evaluations = 710276
+k=10 | Run 7: MEA evaluations = 811338
+k=10 | Run 8: MEA evaluations = 807356
+k=10 | Run 9: MEA evaluations = 1002829
+k=10 | Run 10: MEA evaluations = 1685090
