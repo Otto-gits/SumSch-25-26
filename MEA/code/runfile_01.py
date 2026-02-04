@@ -2,7 +2,7 @@ from MEA import MEA_K_plus_1
 
 folder = '../instances/n500w1k10'
 mutation_rates = [0.5]
-k_values = [3, 6]
+k_values = [3, 6, 10]
 
 print(f"{folder} MEA Results:")
 
@@ -11,8 +11,9 @@ for mut in mutation_rates:
     for j in k_values:
         MEA_evals_per_run = []
 
-        for i in range(5):
+        for i in range(30):
             budget = 10**15
             population_pea, numEvals = MEA_K_plus_1(folder, j, budget, mut)
             MEA_evals_per_run.append(numEvals)
             print(f"k={j} | Run {i+1}: MEA evaluations = {numEvals}")
+        print("\n")

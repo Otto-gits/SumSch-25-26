@@ -6,7 +6,7 @@ numEvalsPEA_list = []
 print(f"\nOne + One EA Results:")
 MEA_evals_per_run = []
 
-for i in range(10):
+for i in range(30):
     budget = 10**15
     population_pea, numEvals = one_plus_one_EA(folder, budget)
     MEA_evals_per_run.append(numEvals)

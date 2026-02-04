@@ -123,5 +123,42 @@ def MEA_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
         if population.individuals[-1].fitness == best_opt.fitness:
             break
             # print(f"Individual {k-1} reached  fitness {population.individuals[-1].fitness}. At {evals} evaluations.")
+    return population, evals
+
+def MEA_K_plus_1_graphable(folder_path, k, budget=10000000, mutation_rate=0.5):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    evals = 0
+    for i in range(k - 1):
+        population.individuals[i].create_valid_p2w_solution()
+        
+    
+    best_opt = copy.deepcopy(population.individuals[0])
+    print(f"{evals}, {population.individuals[-1].fitness}, X")
+    # print("best optimal fitness should be:", best_opt.fitness)
+    while population.individuals[-1].fitness < best_opt.fitness and evals < budget:
+        parent1 = population.individuals[-1]
+        
+        p2Ind = random.randint(0, k - 2)
+        parent2 = population.individuals[p2Ind]
+        randInt = random.random()
+        if (randInt > mutation_rate):
+            child1 = copy.deepcopy(parent1).crossover(parent2)
+        else:
+            child1 = copy.deepcopy(parent1).mutate()
+            
+        evals += 1
+        child1.calc_fitness()
+        if child1.fitness > parent1.fitness:
+            population.individuals[-1] = child1
+            if randInt > mutation_rate:
+                print(f"{evals}, {child1.fitness}, X")
+            else:
+                print(f"{evals}, {child1.fitness}, M")
+
+            
+        if population.individuals[-1].fitness == best_opt.fitness:
+            break
+            # print(f"Individual {k-1} reached  fitness {population.individuals[-1].fitness}. At {evals} evaluations.")
 
     return population, evals

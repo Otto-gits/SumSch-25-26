@@ -3,7 +3,7 @@
 #SBATCH --output=res04.out
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1 
-#SBATCH --mem=6G     
+#SBATCH --mem=1G     
 #SBATCH --time=48:00:00      
 
 module load Anaconda3
