@@ -1,11 +1,5 @@
 ../instances/n500w1k10 MEA Results:
 
 === Mutation rate: 0.1 ===
-k=3 | Run 1: MEA evaluations = 17924514
-k=3 | Run 2: MEA evaluations = 8515691
-k=3 | Run 3: MEA evaluations = 9231897
-k=3 | Run 4: MEA evaluations = 8915029
-k=3 | Run 5: MEA evaluations = 14766035
-k=6 | Run 1: MEA evaluations = 18068084
-k=6 | Run 2: MEA evaluations = 9554985
-slurmstepd: error: *** JOB 170 ON localhost CANCELLED AT 2026-02-01T14:09:37 DUE TO TIME LIMIT ***
+k=10 | Run 1: MEA evaluations = 18369492
+k=10 | Run 2: MEA evaluations = 13660032
