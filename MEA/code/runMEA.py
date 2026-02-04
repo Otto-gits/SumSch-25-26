@@ -1,7 +1,7 @@
 from MEA import run_MEA2
 import math
 
-folder = '../instances/n200w1k10'
+folder = '../instances/n50w1k10'
 MEA_evals_per_run = []
 print(f"{folder} MEA Results:")
 k = [2,5,10] 

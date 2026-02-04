@@ -87,18 +87,26 @@ class Knapsack:
         else:
             self.fitness = sum_profit
     
-    def crossover(self, p2):    
-        for i in self.bitstring:
-            if random.random() < 0.5:
-                self.bitstring[i] = self.bitstring[i]
-            else:
+    def crossover(self, p2):
+        # print(f"before: {self.bitstring}")    
+        for i in range(len(self.bitstring)):
+            if random.random() >= 0.5:
                 self.bitstring[i] = p2.bitstring[i]
+        # print(f"after: {self.bitstring}")
         return self
-        
+    
+    # def crossover(self, p2):
+    #     cnt = 0
+    #     for i in self.bitstring:
+    #         cnt += 1
+    #         if random.random() >= 0.5:
+    #             self.bitstring[i] = p2.bitstring[i]
+    #     print("crossover processed genes:", cnt)
+    #     return self
     
     def mutate(self):
         # print("Mutating individual...")
-        for i in range(self.num_items):
+        for i in range(len(self.bitstring)):
             if random.random() < 1/self.num_items:
                 self.bitstring[i] ^= 1
         return self
