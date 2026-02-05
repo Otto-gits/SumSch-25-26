@@ -134,7 +134,7 @@ def MEA_K_plus_1_graphable(folder_path, k, budget=10000000, mutation_rate=0.5):
         
     
     best_opt = copy.deepcopy(population.individuals[0])
-    print(f"{evals}, {population.individuals[-1].fitness}, X")
+    print(f"{mutation_rate} {evals} {population.individuals[-1].fitness} 0")
     # print("best optimal fitness should be:", best_opt.fitness)
     while population.individuals[-1].fitness < best_opt.fitness and evals < budget:
         parent1 = population.individuals[-1]
@@ -152,9 +152,9 @@ def MEA_K_plus_1_graphable(folder_path, k, budget=10000000, mutation_rate=0.5):
         if child1.fitness > parent1.fitness:
             population.individuals[-1] = child1
             if randInt > mutation_rate:
-                print(f"{evals}, {child1.fitness}, X")
+                print(f"{mutation_rate} {evals} {population.individuals[-1].fitness} X")
             else:
-                print(f"{evals}, {child1.fitness}, M")
+                print(f"{mutation_rate} {evals} {population.individuals[-1].fitness} M")
 
             
         if population.individuals[-1].fitness == best_opt.fitness:
