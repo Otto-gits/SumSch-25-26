@@ -1,0 +1,5 @@
+../instances/n500w1k10 MEA Results:
+
+=== Mutation rate: 0.9 ===
+k=10 | Run 1: MEA evaluations = 143451
+k=10 | Run 2: MEA evaluations = 14670

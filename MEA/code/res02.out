@@ -1,7 +1,30 @@
 ../instances/n500w1k10 MEA Results:
 
 === Mutation rate: 0.1 ===
-k=10 | Run 1: MEA evaluations = 11590246
-k=10 | Run 2: MEA evaluations = 2605386
-k=10 | Run 3: MEA evaluations = 10498940
-k=10 | Run 4: MEA evaluations = 10994616
+k=3 | Run 1: MEA evaluations = 77747
+k=3 | Run 2: MEA evaluations = 107091
+k=3 | Run 3: MEA evaluations = 107575
+k=3 | Run 4: MEA evaluations = 40592
+k=3 | Run 5: MEA evaluations = 25089
+k=3 | Run 6: MEA evaluations = 62803
+k=3 | Run 7: MEA evaluations = 61981
+k=3 | Run 8: MEA evaluations = 87098
+k=3 | Run 9: MEA evaluations = 44798
+k=3 | Run 10: MEA evaluations = 76901
+k=3 | Run 11: MEA evaluations = 56685
+k=3 | Run 12: MEA evaluations = 72829
+k=3 | Run 13: MEA evaluations = 9056
+k=3 | Run 14: MEA evaluations = 37949
+k=3 | Run 15: MEA evaluations = 76541
+k=3 | Run 16: MEA evaluations = 15305
+k=3 | Run 17: MEA evaluations = 56649
+k=3 | Run 18: MEA evaluations = 117583
+k=3 | Run 19: MEA evaluations = 17872
+k=3 | Run 20: MEA evaluations = 32403
+k=3 | Run 21: MEA evaluations = 43538
+k=3 | Run 22: MEA evaluations = 43602
+k=3 | Run 23: MEA evaluations = 28109
+k=3 | Run 24: MEA evaluations = 55999
+k=3 | Run 25: MEA evaluations = 52687
+k=3 | Run 26: MEA evaluations = 24923
+k=3 | Run 27: MEA evaluations = 135348
