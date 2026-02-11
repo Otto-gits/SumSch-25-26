@@ -50,12 +50,11 @@ def run_MEA(instance_filename, pop_size, generations):
     return population
 
     
-def run_MEA2(folder_path, budget, k):
+def run_MEA2(folder_path, budget, k, mutation_rate=0.5):
     # Initialize population
     population = Population()
     population.injest_folder(folder_path, k)
     pop_size = len(population.individuals)
-    done = [0]*pop_size
 
     # Main MEA loop
     evals = 0
@@ -64,18 +63,15 @@ def run_MEA2(folder_path, budget, k):
     best_opt = copy.deepcopy(population.individuals[0])
     best_opt.create_valid_p2w_solution()
     
-    while evals < budget and sum(done) < pop_size:
+    while evals < budget:
+        if all(ind.fitness == best_opt.fitness for ind in population.individuals):
+            break
         p1Ind = random.randint(0, pop_size - 1)
         p2Ind = random.randint(0, pop_size - 1)
         parent1 = population.individuals[p1Ind]
-        parent2 = population.individuals[p2Ind]
-        if parent1.fitness == best_opt.fitness and done[p1Ind] == 0:
-            done[p1Ind] = 1
-        if parent2.fitness == best_opt.fitness and done[p2Ind] == 0:
-            done[p2Ind] = 1
-        
+        parent2 = population.individuals[p2Ind] 
         randInt = random.random()
-        if (randInt < 0.5):
+        if (randInt > mutation_rate):
             child1 = copy.deepcopy(parent1).crossover(parent2)
         else:
             child1 = copy.deepcopy(parent1).mutate()

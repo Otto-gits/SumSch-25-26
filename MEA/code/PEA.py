@@ -78,3 +78,23 @@ def one_plus_one_EA(folder_path, budget):
         if child1.fitness > parent1.fitness:
             population.individuals[0] = child1
     return population, evals
+
+def one_plus_one_EA_graphable(folder_path, budget):
+    population = Population()
+    population.injest_folder(folder_path, k=1)
+    best_opt = copy.deepcopy(population.individuals[0])
+    best_opt.create_valid_p2w_solution()
+
+    # print("best optimal fitness should be:", best_opt.fitness)
+    evals = 0
+    print(f"{evals} {population.individuals[0].fitness}")
+    while evals < budget and population.individuals[0].fitness < best_opt.fitness:
+        parent1 = population.individuals[0]
+        child1 = copy.deepcopy(parent1).mutate()  
+        child1.calc_fitness()
+        evals += 1
+
+        if child1.fitness > parent1.fitness:
+            population.individuals[0] = child1
+            print(f"{evals} {population.individuals[0].fitness}")
+    return population, evals

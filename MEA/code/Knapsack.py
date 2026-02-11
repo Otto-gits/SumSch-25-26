@@ -59,6 +59,7 @@ class Knapsack:
                 self.bitstring[i] = 1
             else:
                 self.bitstring[i] = 0
+        self.calc_fitness()
         return self
     
     def create_valid_p2w_solution(self):
