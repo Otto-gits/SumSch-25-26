@@ -47,7 +47,7 @@ def build_instance_text(k, profits):
     lines.append("")  # blank line at end
     return "\n".join(lines)
 
-def write_instances_to_folder(folder_name="n500w1k10"):
+def write_instances_to_folder(folder_name="2n500w1k10"):
     """Create output folder under ../instances and write each instance file there."""
     here = os.path.dirname(__file__)
     instances_root = os.path.abspath(os.path.join(here, "..", "instances"))

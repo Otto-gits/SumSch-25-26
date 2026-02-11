@@ -1,8 +1,8 @@
 from MEA import MEA_K_plus_1
 
-folder = '../instances/n500w1k10'
+folder = '../instances/2n500w1k10'
 mutation_rates = [0.1]
-k_values = [10]
+k_values = [3]
 
 print(f"{folder} MEA Results:")
 
