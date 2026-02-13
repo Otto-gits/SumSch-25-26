@@ -1,99 +1,18 @@
 ../instances/n500w1k10 MEA Results:
 
-=== Mutation rate: 0.5 ===
-k=3 | Run 1: MEA evaluations = 12394
-k=3 | Run 2: MEA evaluations = 2228
-k=3 | Run 3: MEA evaluations = 11555
-k=3 | Run 4: MEA evaluations = 19996
-k=3 | Run 5: MEA evaluations = 12964
-k=3 | Run 6: MEA evaluations = 18973
-k=3 | Run 7: MEA evaluations = 5109
-k=3 | Run 8: MEA evaluations = 7971
-k=3 | Run 9: MEA evaluations = 10365
-k=3 | Run 10: MEA evaluations = 17722
-k=3 | Run 11: MEA evaluations = 9984
-k=3 | Run 12: MEA evaluations = 27262
-k=3 | Run 13: MEA evaluations = 13099
-k=3 | Run 14: MEA evaluations = 10400
-k=3 | Run 15: MEA evaluations = 12025
-k=3 | Run 16: MEA evaluations = 12445
-k=3 | Run 17: MEA evaluations = 7136
-k=3 | Run 18: MEA evaluations = 23111
-k=3 | Run 19: MEA evaluations = 5831
-k=3 | Run 20: MEA evaluations = 7382
-k=3 | Run 21: MEA evaluations = 17916
-k=3 | Run 22: MEA evaluations = 18601
-k=3 | Run 23: MEA evaluations = 2642
-k=3 | Run 24: MEA evaluations = 7664
-k=3 | Run 25: MEA evaluations = 6707
-k=3 | Run 26: MEA evaluations = 9375
-k=3 | Run 27: MEA evaluations = 18592
-k=3 | Run 28: MEA evaluations = 7380
-k=3 | Run 29: MEA evaluations = 4220
-k=3 | Run 30: MEA evaluations = 17700
-
-
-k=6 | Run 1: MEA evaluations = 36744
-k=6 | Run 2: MEA evaluations = 26718
-k=6 | Run 3: MEA evaluations = 31398
-k=6 | Run 4: MEA evaluations = 12255
-k=6 | Run 5: MEA evaluations = 11791
-k=6 | Run 6: MEA evaluations = 45781
-k=6 | Run 7: MEA evaluations = 7503
-k=6 | Run 8: MEA evaluations = 29440
-k=6 | Run 9: MEA evaluations = 2477
-k=6 | Run 10: MEA evaluations = 25698
-k=6 | Run 11: MEA evaluations = 11195
-k=6 | Run 12: MEA evaluations = 29252
-k=6 | Run 13: MEA evaluations = 16121
-k=6 | Run 14: MEA evaluations = 10985
-k=6 | Run 15: MEA evaluations = 11102
-k=6 | Run 16: MEA evaluations = 7913
-k=6 | Run 17: MEA evaluations = 26919
-k=6 | Run 18: MEA evaluations = 32426
-k=6 | Run 19: MEA evaluations = 4148
-k=6 | Run 20: MEA evaluations = 6968
-k=6 | Run 21: MEA evaluations = 32435
-k=6 | Run 22: MEA evaluations = 41317
-k=6 | Run 23: MEA evaluations = 30310
-k=6 | Run 24: MEA evaluations = 17295
-k=6 | Run 25: MEA evaluations = 11375
-k=6 | Run 26: MEA evaluations = 51763
-k=6 | Run 27: MEA evaluations = 26121
-k=6 | Run 28: MEA evaluations = 18600
-k=6 | Run 29: MEA evaluations = 17219
-k=6 | Run 30: MEA evaluations = 5105
-
-
-k=10 | Run 1: MEA evaluations = 485162
-k=10 | Run 2: MEA evaluations = 452896
-k=10 | Run 3: MEA evaluations = 434233
-k=10 | Run 4: MEA evaluations = 864048
-k=10 | Run 5: MEA evaluations = 245284
-k=10 | Run 6: MEA evaluations = 1508361
-k=10 | Run 7: MEA evaluations = 698261
-k=10 | Run 8: MEA evaluations = 1413610
-k=10 | Run 9: MEA evaluations = 2136346
-k=10 | Run 10: MEA evaluations = 1120356
-k=10 | Run 11: MEA evaluations = 654273
-k=10 | Run 12: MEA evaluations = 892141
-k=10 | Run 13: MEA evaluations = 29029
-k=10 | Run 14: MEA evaluations = 436362
-k=10 | Run 15: MEA evaluations = 2617300
-k=10 | Run 16: MEA evaluations = 1570733
-k=10 | Run 17: MEA evaluations = 1193323
-k=10 | Run 18: MEA evaluations = 160604
-k=10 | Run 19: MEA evaluations = 1443422
-k=10 | Run 20: MEA evaluations = 669430
-k=10 | Run 21: MEA evaluations = 1339842
-k=10 | Run 22: MEA evaluations = 813349
-k=10 | Run 23: MEA evaluations = 1483719
-k=10 | Run 24: MEA evaluations = 1664912
-k=10 | Run 25: MEA evaluations = 3323824
-k=10 | Run 26: MEA evaluations = 4812376
-k=10 | Run 27: MEA evaluations = 1457035
-k=10 | Run 28: MEA evaluations = 2454136
-k=10 | Run 29: MEA evaluations = 2637952
-k=10 | Run 30: MEA evaluations = 163675
-
-
+=== Mutation rate: 0.1 ===
+k=10 | Run 1: MEA evaluations = 5170948
+k=10 | Run 2: MEA evaluations = 3888761
+k=10 | Run 3: MEA evaluations = 4367872
+k=10 | Run 4: MEA evaluations = 4312625
+k=10 | Run 5: MEA evaluations = 15804140
+k=10 | Run 6: MEA evaluations = 117724
+k=10 | Run 7: MEA evaluations = 1404855
+k=10 | Run 8: MEA evaluations = 507604
+k=10 | Run 9: MEA evaluations = 2275796
+k=10 | Run 10: MEA evaluations = 3236428
+k=10 | Run 11: MEA evaluations = 8667206
+k=10 | Run 12: MEA evaluations = 8294856
+k=10 | Run 13: MEA evaluations = 2743024
+k=10 | Run 14: MEA evaluations = 8254925
+k=10 | Run 15: MEA evaluations = 3789938
