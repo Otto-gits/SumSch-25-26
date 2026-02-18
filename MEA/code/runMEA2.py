@@ -2,7 +2,7 @@ from MEA import run_MEA2
 
 MEA_evals_per_run = []
 k = [2,5,10] 
-for folder in ['../instances/n500w1k10']:
+for folder in ['../instances/2n500w1k10']:
     print(f"{folder} MEA Results:")
     for j in k:
         print(f"\n=== k: {j} ===")

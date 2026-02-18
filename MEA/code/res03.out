@@ -31,6 +31,7 @@ k=3 | Run 27: MEA evaluations = 3541
 k=3 | Run 28: MEA evaluations = 4881
 k=3 | Run 29: MEA evaluations = 33186
 k=3 | Run 30: MEA evaluations = 3596
+
 k=6 | Run 1: MEA evaluations = 1529
 k=6 | Run 2: MEA evaluations = 2753
 k=6 | Run 3: MEA evaluations = 7621
@@ -61,6 +62,7 @@ k=6 | Run 27: MEA evaluations = 4103
 k=6 | Run 28: MEA evaluations = 15595
 k=6 | Run 29: MEA evaluations = 13823
 k=6 | Run 30: MEA evaluations = 16148
+
 k=10 | Run 1: MEA evaluations = 8077
 k=10 | Run 2: MEA evaluations = 14094
 k=10 | Run 3: MEA evaluations = 6249

@@ -7,4 +7,4 @@
 #SBATCH --time=48:00:00      
 
 module load Anaconda3
-python -u runfile_03.py
+python -u runPEA3.py
