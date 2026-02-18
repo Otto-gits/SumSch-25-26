@@ -1,36 +1,14 @@
-../instances/2n500w1k10 MEA Results:
+../instances/n500w1k10 PEA Results:
 
-=== Mutation rate: 0.1 ===
-k=6 | Run 1: MEA evaluations = 40422
-k=6 | Run 2: MEA evaluations = 33435
-k=6 | Run 3: MEA evaluations = 55492
-k=6 | Run 4: MEA evaluations = 116432
-k=6 | Run 5: MEA evaluations = 125177
-k=6 | Run 6: MEA evaluations = 89132
-k=6 | Run 7: MEA evaluations = 27929
-k=6 | Run 8: MEA evaluations = 43250
-k=6 | Run 9: MEA evaluations = 237179
-k=6 | Run 10: MEA evaluations = 193642
-k=6 | Run 11: MEA evaluations = 10005
-k=6 | Run 12: MEA evaluations = 173050
-k=6 | Run 13: MEA evaluations = 24890
-k=6 | Run 14: MEA evaluations = 33876
-k=6 | Run 15: MEA evaluations = 7399
-k=6 | Run 16: MEA evaluations = 20413
-k=6 | Run 17: MEA evaluations = 105447
-k=6 | Run 18: MEA evaluations = 31337
-k=6 | Run 19: MEA evaluations = 55379
-k=6 | Run 20: MEA evaluations = 8639
-k=6 | Run 21: MEA evaluations = 69641
-k=6 | Run 22: MEA evaluations = 28626
-k=6 | Run 23: MEA evaluations = 14705
-k=6 | Run 24: MEA evaluations = 18861
-k=6 | Run 25: MEA evaluations = 35429
-k=6 | Run 26: MEA evaluations = 42776
-k=6 | Run 27: MEA evaluations = 109265
-k=6 | Run 28: MEA evaluations = 127179
-k=6 | Run 29: MEA evaluations = 112823
-k=6 | Run 30: MEA evaluations = 15202
-
-
-slurmstepd: error: *** JOB 30588 ON localhost CANCELLED AT 2026-02-13T20:53:57 DUE TO TIME LIMIT ***
+=== k: 2 ===
+1824320
+2853509
+2130541
+2036954
+1339924
+4333945
+2335713
+2701125
+2420073
+6786612
+6214977
