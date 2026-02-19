@@ -1,64 +1,20 @@
-../instances/n500w1k10 MEA Results:
+../instances/2n500w1k10 PEA Results:
 
-=== Mutation rate: 0.9 ===
-k=3 | Run 1: MEA evaluations = 1808
-k=3 | Run 2: MEA evaluations = 1888
-k=3 | Run 3: MEA evaluations = 9642
-k=3 | Run 4: MEA evaluations = 19839
-k=3 | Run 5: MEA evaluations = 2884
-k=3 | Run 6: MEA evaluations = 4023
-k=3 | Run 7: MEA evaluations = 6079
-k=3 | Run 8: MEA evaluations = 771
-k=3 | Run 9: MEA evaluations = 6997
-k=3 | Run 10: MEA evaluations = 6022
-k=3 | Run 11: MEA evaluations = 15095
-k=3 | Run 12: MEA evaluations = 4790
-k=3 | Run 13: MEA evaluations = 4015
-k=3 | Run 14: MEA evaluations = 10498
-k=3 | Run 15: MEA evaluations = 7253
-k=3 | Run 16: MEA evaluations = 10204
-k=3 | Run 17: MEA evaluations = 4869
-k=3 | Run 18: MEA evaluations = 9169
-k=3 | Run 19: MEA evaluations = 14681
-k=3 | Run 20: MEA evaluations = 11660
-k=3 | Run 21: MEA evaluations = 6822
-k=3 | Run 22: MEA evaluations = 2540
-k=3 | Run 23: MEA evaluations = 6453
-k=3 | Run 24: MEA evaluations = 2850
-k=3 | Run 25: MEA evaluations = 5233
-k=3 | Run 26: MEA evaluations = 2027
-k=3 | Run 27: MEA evaluations = 4904
-k=3 | Run 28: MEA evaluations = 15961
-k=3 | Run 29: MEA evaluations = 6128
-k=3 | Run 30: MEA evaluations = 7880
-
-k=6 | Run 1: MEA evaluations = 9901
-k=6 | Run 2: MEA evaluations = 21889
-k=6 | Run 3: MEA evaluations = 6903
-k=6 | Run 4: MEA evaluations = 42664
-k=6 | Run 5: MEA evaluations = 20926
-k=6 | Run 6: MEA evaluations = 27018
-k=6 | Run 7: MEA evaluations = 5698
-k=6 | Run 8: MEA evaluations = 21947
-k=6 | Run 9: MEA evaluations = 3806
-k=6 | Run 10: MEA evaluations = 14984
-k=6 | Run 11: MEA evaluations = 16796
-k=6 | Run 12: MEA evaluations = 231
-k=6 | Run 13: MEA evaluations = 19397
-k=6 | Run 14: MEA evaluations = 1630
-k=6 | Run 15: MEA evaluations = 4127
-k=6 | Run 16: MEA evaluations = 11955
-k=6 | Run 17: MEA evaluations = 7444
-k=6 | Run 18: MEA evaluations = 5087
-k=6 | Run 19: MEA evaluations = 9756
-k=6 | Run 20: MEA evaluations = 9179
-k=6 | Run 21: MEA evaluations = 8826
-k=6 | Run 22: MEA evaluations = 9340
-k=6 | Run 23: MEA evaluations = 13363
-k=6 | Run 24: MEA evaluations = 4684
-k=6 | Run 25: MEA evaluations = 14778
-k=6 | Run 26: MEA evaluations = 13181
-k=6 | Run 27: MEA evaluations = 4705
-k=6 | Run 28: MEA evaluations = 3304
-k=6 | Run 29: MEA evaluations = 3081
-k=6 | Run 30: MEA evaluations = 7832
+=== k: 2 ===
+2613093
+1349901
+1025732
+3752933
+1173688
+3532193
+1798765
+2221204
+1872656
+2013366
+2085273
+2539371
+1718807
+3024523
+2386271
+3098148
+3237448

@@ -1,33 +1,4 @@
-../instances/2n500w1k10 MEA Results:
+../instances/n500w1k10 PEA Results:
 
-=== Mutation rate: 0.1 ===
-k=3 | Run 1: MEA evaluations = 162553
-k=3 | Run 2: MEA evaluations = 22103
-k=3 | Run 3: MEA evaluations = 104384
-k=3 | Run 4: MEA evaluations = 105150
-k=3 | Run 5: MEA evaluations = 161573
-k=3 | Run 6: MEA evaluations = 129492
-k=3 | Run 7: MEA evaluations = 102384
-k=3 | Run 8: MEA evaluations = 132481
-k=3 | Run 9: MEA evaluations = 71388
-k=3 | Run 10: MEA evaluations = 144654
-k=3 | Run 11: MEA evaluations = 12380
-k=3 | Run 12: MEA evaluations = 179190
-k=3 | Run 13: MEA evaluations = 38958
-k=3 | Run 14: MEA evaluations = 124135
-k=3 | Run 15: MEA evaluations = 41433
-k=3 | Run 16: MEA evaluations = 39467
-k=3 | Run 17: MEA evaluations = 65297
-k=3 | Run 18: MEA evaluations = 44935
-k=3 | Run 19: MEA evaluations = 16161
-k=3 | Run 20: MEA evaluations = 45617
-k=3 | Run 21: MEA evaluations = 69128
-k=3 | Run 22: MEA evaluations = 98075
-k=3 | Run 23: MEA evaluations = 34880
-k=3 | Run 24: MEA evaluations = 90023
-k=3 | Run 25: MEA evaluations = 121722
-k=3 | Run 26: MEA evaluations = 4813
-k=3 | Run 27: MEA evaluations = 77922
-k=3 | Run 28: MEA evaluations = 73317
-k=3 | Run 29: MEA evaluations = 22117
-k=3 | Run 30: MEA evaluations = 108072
+=== k: 10 ===
+26485846
