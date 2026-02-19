@@ -1,8 +1,8 @@
 from MEA import run_MEA2
 
 MEA_evals_per_run = []
-k = [10] 
-for folder in ['../instances/n500w1k10']:
+k = [5] 
+for folder in ['../instances/2n500w1k10']:
     print(f"{folder} MEA Results:")
     for j in k:
         print(f"\n=== k: {j} ===")
