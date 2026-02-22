@@ -1,3 +1,8 @@
 ../instances/2n500w1k10 PEA Results:
 
 === k: 10 ===
+18368972
+13502318
+22177340
+16775510
+slurmstepd: error: *** JOB 56125 ON localhost CANCELLED AT 2026-02-22T18:17:49 DUE TO TIME LIMIT ***
