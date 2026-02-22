@@ -46,7 +46,7 @@ import copy
 #     print(f"Individual {i} fitness: {individual.fitness()}")
 #     print(" Bitstring:", individual.bitstring)
 
-PopulationPEA, evals = run_PEA('../instances/n100w1k10', budget=1000000, k=5)
+PopulationPEA, evals = run_PEA('../instances/n280', budget=1000, k=1)
 print(PopulationPEA.individuals[0].items)
 best_opt = copy.deepcopy(PopulationPEA.individuals[0])
 best_opt.create_valid_p2w_solution()

@@ -158,3 +158,78 @@ def MEA_K_plus_1_graphable(folder_path, k, budget=10000000, mutation_rate=0.5):
             # print(f"Individual {k-1} reached  fitness {population.individuals[-1].fitness}. At {evals} evaluations.")
 
     return population, evals
+
+
+
+def run_MEA_complex(folder_path, budget, k, mutation_rate=0.5):
+    # Initialize population
+    population = Population()
+    population.injest_folder(folder_path, k)
+    pop_size = len(population.individuals)
+
+    # Main MEA loop
+    evals = 0
+
+    while evals < budget:
+        p1Ind = random.randint(0, pop_size - 1)
+        p2Ind = random.randint(0, pop_size - 1)
+        parent1 = population.individuals[p1Ind]
+        parent2 = population.individuals[p2Ind] 
+        randInt = random.random()
+        if (randInt > mutation_rate):
+            child1 = copy.deepcopy(parent1).crossover(parent2)
+        else:
+            child1 = copy.deepcopy(parent1).mutate()
+        
+        
+        child1.calc_fitness()
+        evals += 1
+        if child1.fitness > parent1.fitness:
+            population.individuals[p1Ind] = child1
+    print(f"Budget of {evals}:")
+    for ind in population.individuals:
+        print(f"Fitness: {ind.fitness}")
+        
+    return population, evals
+
+def one_plus_one(individual, budget):
+    evals = 0
+    best_ind = copy.deepcopy(individual)
+    while evals < budget:
+        child = copy.deepcopy(best_ind).mutate()
+        evals += 1
+        child.calc_fitness()
+        if child.fitness >= best_ind.fitness:
+            best_ind = child
+    print(f"1+1 EA found solution with fitness {best_ind.fitness} at {evals} evaluations.")
+    return best_ind, evals
+
+def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    best0, evals0 = one_plus_one(population.individuals[0], budget // k)
+    population.individuals[0] = best0
+    evals = 0
+    evals += evals0
+    num_solved = 1
+    
+    for i in range(1, k):
+        last_improvement_evals = 0
+        while last_improvement_evals < 2000 and evals < budget:
+            p1 = population.individuals[i]
+            p2 = population.individuals[random.randint(0, num_solved - 1)]
+            randInt = random.random()
+            if (randInt > mutation_rate):
+                child1 = copy.deepcopy(p1).crossover(p2)
+            else:
+                child1 = copy.deepcopy(p1).mutate()
+            evals += 1
+            child1.calc_fitness()
+            if child1.fitness > p1.fitness:
+                population.individuals[i] = child1
+                last_improvement_evals = 0
+            if last_improvement_evals >= 2000:
+                num_solved += 1
+                print(f"Individual {i} solved with fitness {population.individuals[i].fitness} at {evals} evaluations.")
+                break
+    return population, evals

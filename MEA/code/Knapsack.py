@@ -1,7 +1,10 @@
 import copy
+import re
 from typing import Dict, Tuple
 import os
 import random
+ITEMS_HEADER_RE = re.compile(r"^\s*ITEMS SECTION\s*\(INDEX,\s*PROFIT,\s*WEIGHT,\s*ASSIGNED NODE NUMBER\)\s*:\s*$")
+
 
 #To injest the knapsack problem instance into a knapsack class
 class Knapsack:
@@ -11,9 +14,11 @@ class Knapsack:
         self.items: Dict[int, Tuple[float, float]] = {} # item_id: (profit, weight)
         self.bitstring: list[int] = []
         self.fitness = 0
-        self.injest_knapsack_instance(filename)    
+        if self.injest_knapsack_instance(filename) is None:
+            self.injest_knapsack_instance_complex(filename)    
 
     def injest_knapsack_instance(self, filename):
+        print(f"Attempting to injest knapsack instance from {filename} using simple parser...")
         here = os.path.dirname(__file__)
         data_path = os.path.join(here, filename)
         # print(f"Injesting knapsack instance from {data_path}")
@@ -39,10 +44,61 @@ class Knapsack:
                         self.items[item_id] = (profit, weight)
                     self.create_initial_solution()
                     self.calc_fitness()
+                    return True
                     # print("Initial valid solution bitstring:", self.bitstring)
                     # print("Initial valid solution fitness:", self.fitness())
-                    break  
+                      
                 
+    def injest_knapsack_instance_complex(self, filename):
+        print(f"Attempting to injest knapsack instance from {filename} using complex parser...")
+        here = os.path.dirname(__file__)
+        data_path = os.path.join(here, filename)
+
+        with open(data_path, "r", encoding="utf-8", errors="replace") as f:
+            lines = f.readlines()
+
+        self.num_items = None
+        self.capacity = None
+
+        for i, line in enumerate(lines):
+            if line.startswith("NUMBER OF ITEMS"):
+                self.num_items = int(line.split(":", 1)[1].strip())
+                self.bitstring = [0] * self.num_items
+
+                # Ensure items container exists and is sized
+                if not hasattr(self, "items") or self.items is None:
+                    self.items = {}
+            elif line.startswith("CAPACITY OF KNAPSACK"):
+                self.capacity = int(line.split(":", 1)[1].strip())
+            elif ITEMS_HEADER_RE.match(line):
+                if self.num_items is None:
+                    raise ValueError("Found ITEMS SECTION before NUMBER OF ITEMS")
+
+                read = 0
+                j = i + 1
+                while j < len(lines) and read < self.num_items:
+                    parts = lines[j].split()
+                    j += 1
+                    if len(parts) < 3:
+                        continue  # skip blank/bad lines
+
+                    item_id = int(parts[0]) - 1
+                    profit = int(parts[1])
+                    weight = int(parts[2])
+                    # node = int(parts[3]) if len(parts) >= 4 else None  # keep if needed later
+
+                    self.items[item_id] = (profit, weight)
+                    read += 1
+
+                if read != self.num_items:
+                    raise ValueError(f"Expected {self.num_items} items, read {read}")
+
+                self.create_initial_solution()
+                self.calc_fitness()
+                return
+
+        raise ValueError("Could not find ITEMS SECTION header in file")
+                    
         
     def random_initialization(self):
         for i in self.items.keys():
