@@ -215,7 +215,7 @@ def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
     
     for i in range(1, k):
         last_improvement_evals = 0
-        while last_improvement_evals < 2000 and evals < budget:
+        while evals < budget:
             p1 = population.individuals[i]
             p2 = population.individuals[random.randint(0, num_solved - 1)]
             randInt = random.random()
@@ -228,7 +228,9 @@ def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
             if child1.fitness > p1.fitness:
                 population.individuals[i] = child1
                 last_improvement_evals = 0
-            if last_improvement_evals >= 2000:
+            else:
+                last_improvement_evals += 1  # Add this line to increment when no improvement
+            if last_improvement_evals >= 500:
                 num_solved += 1
                 print(f"Individual {i} solved with fitness {population.individuals[i].fitness} at {evals} evaluations.")
                 break
