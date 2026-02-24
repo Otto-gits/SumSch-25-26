@@ -98,3 +98,27 @@ def one_plus_one_EA_graphable(folder_path, budget):
             population.individuals[0] = child1
             print(f"{evals} {population.individuals[0].fitness}")
     return population, evals
+
+
+def run_PEA_complex(folder_path, budget, k):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    pop_size = len(population.individuals)
+    t = pop_size
+    evaluations = 0
+    
+    while evaluations < budget :
+        i = (t % pop_size)   
+        individual = population.individuals[i]
+        child = copy.deepcopy(individual).mutate()
+        evaluations += 1
+        t += 1
+        child.calc_fitness()
+        if child.fitness > individual.fitness:
+            population.individuals[i] = child
+    
+    print(f"Budget of {evaluations}:")
+    for ind in population.individuals:
+        print(f"Fitness: {ind.fitness}")
+    
+    return population, evaluations

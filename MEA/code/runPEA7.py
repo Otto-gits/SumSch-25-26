@@ -12,5 +12,3 @@ for folder in ['../instances/2n500w1k10']:
             population_pea, numEvals = run_PEA(folder, budget, j)
             PEA_evals_per_run.append(numEvals)
             print(f"{numEvals}")
-
-

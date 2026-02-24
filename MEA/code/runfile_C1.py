@@ -10,10 +10,11 @@ for mut in mutation_rates:
     print(f"\n=== Mutation rate: {mut} ===")
     for j in k_values:
         MEA_evals_per_run = []
-
-        for i in range(10):
-            budget = 10**6
+        for i in range(30):
+            budget = 10**7
             population_pea, numEvals = MEA_complex_K_plus_1(folder, j, budget, mut)
             MEA_evals_per_run.append(numEvals)
             print(f"k={j} | Run {i+1}: MEA evaluations = {numEvals}")
+            for individual in population_pea.individuals:
+                print(numEvals, individual.fitness)
         print("\n")

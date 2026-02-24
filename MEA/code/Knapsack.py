@@ -18,7 +18,7 @@ class Knapsack:
             self.injest_knapsack_instance_complex(filename)    
 
     def injest_knapsack_instance(self, filename):
-        print(f"Attempting to injest knapsack instance from {filename} using simple parser...")
+        # print(f"Attempting to injest knapsack instance from {filename} using simple parser...")
         here = os.path.dirname(__file__)
         data_path = os.path.join(here, filename)
         # print(f"Injesting knapsack instance from {data_path}")
@@ -50,7 +50,7 @@ class Knapsack:
                       
                 
     def injest_knapsack_instance_complex(self, filename):
-        print(f"Attempting to injest knapsack instance from {filename} using complex parser...")
+        # print(f"Attempting to injest knapsack instance from {filename} using complex parser...")
         here = os.path.dirname(__file__)
         data_path = os.path.join(here, filename)
 
