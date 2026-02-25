@@ -1,6 +1,6 @@
 from MEA import MEA_complex_K_plus_1
 
-folder = '../instances/n280'
+folder = '../instances/n50comp'
 mutation_rates = [0.5]
 k_values = [10]
 

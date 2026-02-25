@@ -201,20 +201,19 @@ def one_plus_one(individual, budget):
         child.calc_fitness()
         if child.fitness >= best_ind.fitness:
             best_ind = child
-    print(f"1+1 EA found solution with fitness {best_ind.fitness} at {evals} evaluations.")
+    print(f"0 {best_ind.fitness} {evals}")
     return best_ind, evals
 
 def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
     population = Population()
     population.injest_folder(folder_path, k)
-    best0, evals0 = one_plus_one(population.individuals[0], budget // k)
+    best0, evals0 = one_plus_one(population.individuals[0], budget)
     population.individuals[0] = best0
     evals = 0
     evals += evals0
     num_solved = 1
-    
     for i in range(1, k):
-        last_improvement_evals = 0
+        evals = 0
         while evals < budget:
             p1 = population.individuals[i]
             p2 = population.individuals[random.randint(0, num_solved - 1)]
@@ -227,11 +226,6 @@ def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
             child1.calc_fitness()
             if child1.fitness > p1.fitness:
                 population.individuals[i] = child1
-                last_improvement_evals = 0
-            else:
-                last_improvement_evals += 1  # Add this line to increment when no improvement
-            if last_improvement_evals >= 500:
-                num_solved += 1
-                print(f"Individual {i} solved with fitness {population.individuals[i].fitness} at {evals} evaluations.")
-                break
+        print(f"{i} {population.individuals[i].fitness} {evals}")
+    print("\n")
     return population, evals

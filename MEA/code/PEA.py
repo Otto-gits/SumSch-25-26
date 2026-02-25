@@ -117,8 +117,7 @@ def run_PEA_complex(folder_path, budget, k):
         if child.fitness > individual.fitness:
             population.individuals[i] = child
     
-    print(f"Budget of {evaluations}:")
-    for ind in population.individuals:
-        print(f"Fitness: {ind.fitness}")
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
     
     return population, evaluations
