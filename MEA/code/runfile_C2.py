@@ -1,6 +1,6 @@
 from MEA import run_MEA_complex
 
-k = [2, 5, 10] 
+k = [10] 
 for folder in ['../instances/n280']:
     print(f"{folder} MEA Results:")
     for j in k:
