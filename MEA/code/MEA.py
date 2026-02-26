@@ -186,9 +186,9 @@ def run_MEA_complex(folder_path, budget, k, mutation_rate=0.5):
         evals += 1
         if child1.fitness > parent1.fitness:
             population.individuals[p1Ind] = child1
-    print(f"Budget of {evals}:")
-    for ind in population.individuals:
-        print(f"Fitness: {ind.fitness}")
+            
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
         
     return population, evals
 
