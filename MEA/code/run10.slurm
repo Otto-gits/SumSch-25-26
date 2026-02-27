@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=run11
-#SBATCH --output=res11.out
+#SBATCH --job-name=run10
+#SBATCH --output=res10.out
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1 
 #SBATCH --mem=1G     
 #SBATCH --time=48:00:00      
 
 module load Anaconda3
-python -u runPEA11.py
+python -u runPEA10.py
