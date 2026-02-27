@@ -5,6 +5,7 @@ for folder in ['../instances/n280']:
     print(f"{folder} MEA Results:")
     for j in k:
         print(f"\n=== k: {j} ===")
-        for i in range(30):
+        for i in range(10):
             budget = 10**6
             population_pea, numEvals = run_MEA_complex(folder, budget, j)
+            print("\n")
