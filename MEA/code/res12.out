@@ -1,32 +1,10 @@
+../instances/2n500w1k10 PEA Results:
 
-One + One EA Results:
-Run 1: 1+1EA evaluations = 2011361
-Run 2: 1+1EA evaluations = 1100848
-Run 3: 1+1EA evaluations = 495183
-Run 4: 1+1EA evaluations = 612608
-Run 5: 1+1EA evaluations = 526463
-Run 6: 1+1EA evaluations = 1601129
-Run 7: 1+1EA evaluations = 1825544
-Run 8: 1+1EA evaluations = 1064164
-Run 9: 1+1EA evaluations = 1299858
-Run 10: 1+1EA evaluations = 1438614
-Run 11: 1+1EA evaluations = 1110751
-Run 12: 1+1EA evaluations = 1384611
-Run 13: 1+1EA evaluations = 924259
-Run 14: 1+1EA evaluations = 579811
-Run 15: 1+1EA evaluations = 455797
-Run 16: 1+1EA evaluations = 2100759
-Run 17: 1+1EA evaluations = 1099658
-Run 18: 1+1EA evaluations = 519690
-Run 19: 1+1EA evaluations = 742294
-Run 20: 1+1EA evaluations = 770169
-Run 21: 1+1EA evaluations = 1830051
-Run 22: 1+1EA evaluations = 851592
-Run 23: 1+1EA evaluations = 1027223
-Run 24: 1+1EA evaluations = 2339608
-Run 25: 1+1EA evaluations = 504482
-Run 26: 1+1EA evaluations = 720968
-Run 27: 1+1EA evaluations = 518195
-Run 28: 1+1EA evaluations = 1314349
-Run 29: 1+1EA evaluations = 922261
-Run 30: 1+1EA evaluations = 426444
+=== k: 5 ===
+6956793
+7825707
+12234165
+5527659
+5645856
+17012824
+10546267
