@@ -94,7 +94,6 @@ class Knapsack:
                     raise ValueError(f"Expected {self.num_items} items, read {read}")
 
                 self.create_initial_solution()
-                self.calc_fitness()
                 return
 
         raise ValueError("Could not find ITEMS SECTION header in file")
