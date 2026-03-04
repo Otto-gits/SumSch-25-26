@@ -1,6 +1,3 @@
 ../instances/n500w1k10 PEA Results:
 
 === k: 10 ===
-37128629
-26073131
-slurmstepd: error: *** JOB 90066 ON localhost CANCELLED AT 2026-03-01T18:56:43 DUE TO TIME LIMIT ***
