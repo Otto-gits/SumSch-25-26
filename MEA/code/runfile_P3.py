@@ -1,7 +1,7 @@
 from PEA import run_PEA_complex
 
 k = [10] 
-for folder in ['../instances/n50comp']:
+for folder in ['../instances/n106']:
     print(f"{folder} MEA Results:")
     for j in k:
         print(f"\n=== k: {j} ===")
