@@ -7,7 +7,7 @@ for folder in ['../instances/n500w1k10']:
     for j in k:
         print(f"\n=== k: {j} ===")
         MEA_evals_per_run = [] 
-        for i in range(11):
+        for i in range(6):
             budget = 1000000000000000
             population_pea, numEvals = run_MEA2(folder, budget, j)
             MEA_evals_per_run.append(numEvals)
