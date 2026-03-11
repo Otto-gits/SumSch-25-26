@@ -169,7 +169,6 @@ def run_MEA_complex(folder_path, budget, k, mutation_rate=0.5):
 
     # Main MEA loop
     evals = 0
-
     while evals < budget:
         p1Ind = random.randint(0, pop_size - 1)
         p2Ind = random.randint(0, pop_size - 1)

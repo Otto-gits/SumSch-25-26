@@ -12,6 +12,6 @@ for mut in mutation_rates:
         MEA_evals_per_run = []
         for i in range(22):
             budget = 10**6
-            population_pea, numEvals = run_MEA_complex(folder, j, budget, mut)
+            population_pea, numEvals = run_MEA_complex(folder, budget, j, mut)
             MEA_evals_per_run.append(numEvals)
             print("\n")
