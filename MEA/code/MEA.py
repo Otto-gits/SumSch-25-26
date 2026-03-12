@@ -1,3 +1,5 @@
+from math import log10
+
 from Knapsack import Knapsack
 from Population import Population
 import random
@@ -206,7 +208,7 @@ def one_plus_one(individual, budget):
 def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
     population = Population()
     population.injest_folder(folder_path, k)
-    best0, evals0 = one_plus_one(population.individuals[0], budget)
+    best0, evals0 = one_plus_one(population.individuals[0], budget/k)
     population.individuals[0] = best0
     evals = 0
     evals += evals0
@@ -228,3 +230,59 @@ def MEA_complex_K_plus_1(folder_path, k, budget=10000000, mutation_rate=0.5):
         print(f"{i} {population.individuals[i].fitness} {evals}")
     print("\n")
     return population, evals
+
+def MEA_complex_K_plus_1_graph(folder_path, k, budget=10000000, mutation_rate=0.5):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    total_evals = 0  # Global counter for total evaluations
+    print(f"{total_evals}")
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
+    
+    # Optimize individual 0 with one_plus_one_graph
+    best0, evals0 = one_plus_one_graph(population.individuals[0], budget/k)
+    population.individuals[0] = best0
+    total_evals += evals0
+    num_solved = 1
+    
+    for i in range(1, k):
+        local_evals = 0  # Local counter for this individual's loop
+        while local_evals < budget/k:
+            # Check for global power-of-10 prints
+            if total_evals > 0 and log10(total_evals).is_integer():
+                print(f"\n {total_evals}")
+                for ind, idx in zip(population.individuals, range(len(population.individuals))):
+                    print(f"{idx} {ind.fitness}")
+            
+            p1 = population.individuals[i]
+            p2 = population.individuals[random.randint(0, num_solved - 1)]
+            randInt = random.random()
+            if randInt > mutation_rate:
+                child1 = copy.deepcopy(p1).crossover(p2)
+            else:
+                child1 = copy.deepcopy(p1).mutate()
+            local_evals += 1
+            total_evals += 1  # Increment global counter
+            child1.calc_fitness()
+            if child1.fitness > p1.fitness:
+                population.individuals[i] = child1
+        if total_evals > 0 and log10(total_evals).is_integer():
+                print(f"\n {total_evals}")
+                for ind, idx in zip(population.individuals, range(len(population.individuals))):
+                    print(f"{idx} {ind.fitness}")
+    print("\n")
+    return population, total_evals
+
+def one_plus_one_graph(individual, budget):
+    evals = 0
+    best_ind = copy.deepcopy(individual)
+    while evals < budget:
+        if evals > 0 and log10(evals).is_integer():
+            print(f"{best_ind.fitness} {evals} \n")
+        child = copy.deepcopy(best_ind).mutate()
+        evals += 1
+        child.calc_fitness()
+        if child.fitness >= best_ind.fitness:
+            best_ind = child
+    # print(f"0 {best_ind.fitness} {evals}")
+    return best_ind, evals
