@@ -1,3 +1,5 @@
+from math import log10
+
 from Population import Population
 import copy
 
@@ -117,6 +119,35 @@ def run_PEA_complex(folder_path, budget, k):
         if child.fitness > individual.fitness:
             population.individuals[i] = child
     
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
+    
+    return population, evaluations
+
+def run_PEA_complex_graph(folder_path, budget, k):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    pop_size = len(population.individuals)
+    t = pop_size
+    evaluations = 0
+    print(f"\n{evaluations}")
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
+    while evaluations < budget :
+        if evaluations > 0 and log10(evaluations).is_integer():  # Fixed: Avoid log10(0) and only check after evals > 0
+            print(f"\n {evaluations}")
+            for ind, idx in zip(population.individuals, range(len(population.individuals))):
+                print(f"{idx} {ind.fitness}")
+        i = (t % pop_size)   
+        individual = population.individuals[i]
+        child = copy.deepcopy(individual).mutate()
+        evaluations += 1
+        t += 1
+        child.calc_fitness()
+        if child.fitness > individual.fitness:
+            population.individuals[i] = child
+    
+    print(f"\n{evaluations}")
     for ind, i in zip(population.individuals, range(len(population.individuals))):
         print(f"{i} {ind.fitness}")
     
