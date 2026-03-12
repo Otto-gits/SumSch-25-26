@@ -286,3 +286,41 @@ def one_plus_one_graph(individual, budget):
             best_ind = child
     # print(f"0 {best_ind.fitness} {evals}")
     return best_ind, evals
+
+def run_MEA_complex_graph(folder_path, budget, k, mutation_rate=0.5):
+    # Initialize population
+    population = Population()
+    population.injest_folder(folder_path, k)
+    pop_size = len(population.individuals)
+    print("0")
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
+
+    # Main MEA loop
+    evals = 0
+    while evals < budget:
+        if evals > 0 and log10(evals).is_integer():  # Fixed: Avoid log10(0) and only check after evals > 0
+            print(f"\n {evals}")
+            for ind, idx in zip(population.individuals, range(len(population.individuals))):
+                print(f"{idx} {ind.fitness}")
+                
+        p1Ind = random.randint(0, pop_size - 1)
+        p2Ind = random.randint(0, pop_size - 1)
+        parent1 = population.individuals[p1Ind]
+        parent2 = population.individuals[p2Ind] 
+        randInt = random.random()
+        if (randInt > mutation_rate):
+            child1 = copy.deepcopy(parent1).crossover(parent2)
+        else:
+            child1 = copy.deepcopy(parent1).mutate()
+        
+        
+        child1.calc_fitness()
+        evals += 1
+        if child1.fitness > parent1.fitness:
+            population.individuals[p1Ind] = child1
+    print(f"\n{evals}")        
+    for ind, i in zip(population.individuals, range(len(population.individuals))):
+        print(f"{i} {ind.fitness}")
+        
+    return population, evals
