@@ -1,19 +1,13 @@
-from MEA import MEA_K_plus_1
+from PEA import one_plus_one_EA_K
 
-folder = '../instances/2n500w1k10'
-mutation_rates = [0.1]
-k_values = [6]
+folders = ['../instances/n50w1k10','../instances/n100w1k10','../instances/n200w1k10','../instances/n500w1k10','../instances/2n500w1k10']
+k_values = [10]
 
-print(f"{folder} MEA Results:")
-
-for mut in mutation_rates:
-    print(f"\n=== Mutation rate: {mut} ===")
+for folder in folders:
+    print(f"{folder} MEA Results:")
     for j in k_values:
-        MEA_evals_per_run = []
-
-        for i in range(30):
+        for i in range(1):
             budget = 10**15
-            population_pea, numEvals = MEA_K_plus_1(folder, j, budget, mut)
-            MEA_evals_per_run.append(numEvals)
-            print(f"k={j} | Run {i+1}: MEA evaluations = {numEvals}")
+            population_pea, numEvals = one_plus_one_EA_K(folder, budget, j)
+            print(f"{numEvals}")
         print("\n")

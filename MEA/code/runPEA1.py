@@ -1,4 +1,4 @@
-from PEA import run_PEA
+from PEA
 
 PEA_evals_per_run = []
 k = [10] 

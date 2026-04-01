@@ -63,6 +63,26 @@ def PEA_K_plus_1(folder_path, k):
 
     return population, total_evals
 
+def one_plus_one_EA_K(folder_path, budget, k):
+    population = Population()
+    population.injest_folder(folder_path, k)
+    evals = 0
+    for i in range(k - 1):
+        population.individuals[i].create_valid_p2w_solution()
+    
+    best_opt = copy.deepcopy(population.individuals[0])
+    
+    while evals < budget and population.individuals[-1].fitness < best_opt.fitness:
+        parent1 = population.individuals[-1]
+        child1 = copy.deepcopy(parent1).mutate()  
+        child1.calc_fitness()
+        evals += 1
+
+        if child1.fitness > parent1.fitness:
+            population.individuals[-1] = child1  # Fixed: was [0]
+    
+    return population, evals
+
 def one_plus_one_EA(folder_path, budget):
     population = Population()
     population.injest_folder(folder_path, k=1)
