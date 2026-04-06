@@ -1,6 +1,13 @@
-../instances/n500w1k10 PEA Results:
+../instances/2n500w1k10 MEA Results:
 
 === k: 10 ===
-29471872
-34336151
-slurmstepd: error: *** JOB 97745 ON localhost CANCELLED AT 2026-03-11T15:51:30 ***
+3208178
+1318008
+3037607
+3152442
+529938
+856583
+2389976
+610973
+753937
+2008010
